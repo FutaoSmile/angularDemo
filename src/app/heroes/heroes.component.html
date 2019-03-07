@@ -1,0 +1,13 @@
+<div>
+  <h2>英雄列表</h2>
+  <ul class="heroes">
+    <!--ngFor-repeat-->
+    <!--如果当前行的英雄和 selectedHero 相同，Angular 就会添加 CSS 类 selected，否则就会移除它。-->
+    <li *ngFor="let hero of heroList" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+      <span class="badge">{{hero.id}}.  </span>{{hero.name}}
+    </li>
+  </ul>
+</div>
+<!--组件导入与组件传参.-->
+<!--这是一种单向数据绑定。从 HeroesComponent 的 selectedHero 属性绑定到目标元素的 hero 属性，并映射到了 HeroDetailComponent 的 hero 属性。-->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
